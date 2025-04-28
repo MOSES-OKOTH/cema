@@ -210,7 +210,7 @@
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id: id.value
+                    id: "12345678"
                 })
             };
 
@@ -222,6 +222,8 @@
                 console.error(error);
             }
         }
+
+        request();
     </script>
 </body>
 </html>

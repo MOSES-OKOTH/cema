@@ -214,7 +214,7 @@
         </div>
 
         <div class="main-content">
-            <h2>Enroll to Health Program</h2>
+            <h2>Enroll Patient to Health Program</h2>
 
             <div class="form-data">
                 <div class="input-group">
