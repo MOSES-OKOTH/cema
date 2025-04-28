@@ -48,6 +48,9 @@ You can set up the database for the project by navigating to the `/db` folder an
 - running the script in `/db/cema.sql` file, or 
 - importing the database file via the web server's GUI.
 
+#### 4. Run the project
+You can can now access the project locally via your browser using [localhost](http://localhost). The application will default you to the login page where you are supposed to key in the login credentials. Set the `ID` as `12345678` and `Password` as `Password@123` to be able to login.
+
 ## Project Structure
 
 ```
