@@ -172,7 +172,7 @@
                     </div>
                 </a>
 
-                <a href="">
+                <a href="./enrollPatient/">
                     <div class="home-content-card">
                         <i class="fa-solid fa-folder-plus"></i>
                         <p>Enroll Patient</p>
