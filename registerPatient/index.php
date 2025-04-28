@@ -242,7 +242,7 @@
 
                     <div>
                         <p>Multiple Birth? </p>
-                        <select name="multiple-birth" id="multiple-birth">
+                        <select name="multiple-birth" id="multiple_birth">
                             <option value="0">No<option>
                             <option value="1">Yes</option>
                         </select>
@@ -331,10 +331,8 @@
 
                 
 
-
-
                 <div class="submit">
-                    <button id="submit-btn">Add Program <i class="fa-solid fa-long-arrow-right"></i></button>
+                    <button id="submit-btn">Register Patient <i class="fa-solid fa-long-arrow-right"></i></button>
                 </div>
             </div>
         </div>
@@ -347,23 +345,42 @@
     <script>
         let submitBtn = document.getElementById("submit-btn");
 
-        let programId = document.getElementById("program-id");
-        let programName = document.getElementById("program-name");
-        let programDescription = document.getElementById("program-description");
 
-        programId.addEventListener("input", function(){
-            programId.value = programId.value.toUpperCase();
+        let id = document.getElementById("id");
+        let name = document.getElementById("name");
+        let gender = document.getElementById("gender");
+        let dob = document.getElementById("dob");
+        let marital_status = document.getElementById("marital_status");
+        let multiple_birth = document.getElementById("multiple_birth");
+        let phone1 = document.getElementById("phone1");
+        let phone2 = document.getElementById("phone2");
+        let email = document.getElementById("email");
+        let nationality = document.getElementById("nationality");
+        let physical_address = document.getElementById("physical_address");
+        let permanent_address = document.getElementById("permanent_address");
+        let kin_name = document.getElementById("kin_name");
+        let kin_relationship = document.getElementById("kin_relationship");
+        let kin_phone_number = document.getElementById("kin_phone_number");
+        let kin_email = document.getElementById("kin_email");
+        let kin_physical_address = document.getElementById("kin_physical_address");
+        let kin_permanent_address = document.getElementById("kin_permanent_address");
+        let photoUrl = "";
+
+
+
+        name.addEventListener("input", function(){
+            name.value = name.value.toUpperCase();
         });
 
         submitBtn.addEventListener("click", function(e){
             e.preventDefault();
 
-            if(programId.value == "" || programName.value == "" || programDescription.value == ""){
+            if(id.value == "" || name.value == "" || gender.value == ""){
                 alert("Please fill in all the required fields!");
                 return;
             }
 
-            const url = 'http://localhost/cema/api/createProgram/';
+            const url = 'http://localhost/cema/api/registerPatient/';
 
             const options = {
                 method: 'POST',
@@ -372,18 +389,35 @@
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    program_id: programId.value,
-                    program_name: programName.value,
-                    program_description: programDescription.value
+                    id: id.value,
+                    name: name.value,
+                    gender: gender.value,
+                    dob: dob.value,
+                    marital_status: marital_status.value,
+                    multiple_birth: multiple_birth.value,
+                    phone1: phone1.value,
+                    phone2: phone2.value,
+                    email: email.value,
+                    nationality: nationality.value,
+                    physical_address: physical_address.value,
+                    permanent_address: permanent_address.value,
+                    photo_url: "",
+                    kin_name: kin_name.value,
+                    kin_relationship: kin_relationship.value,
+                    kin_phone_number: kin_phone_number.value,
+                    kin_email: kin_email.value,
+                    kin_physical_address: kin_physical_address.value,
+                    kin_permanent_address: kin_permanent_address.value,
                 })
             };
+            
 
             fetch(url, options)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                if(data.error == "0" && data.created == "yes"){
-                    alert("Health Program added successfully!");
+                if(data.error == "0" && data.registered == "yes"){
+                    alert("Patient registered successfully!");
                     window.location.reload();
                 }else{
                     alert(data.message);
