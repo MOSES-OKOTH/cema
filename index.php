@@ -186,7 +186,7 @@
                     </div>
                 </a>
 
-                <a href="">
+                <a href="./viewPatient/">
                     <div class="home-content-card">
                         <i class="fa-solid fa-user-doctor"></i>
                         <p>View Patient</p>
@@ -210,7 +210,7 @@
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id: "23456789"
+                    id: id.value
                 })
             };
 
@@ -222,8 +222,6 @@
                 console.error(error);
             }
         }
-
-        request();
     </script>
 </body>
 </html>
